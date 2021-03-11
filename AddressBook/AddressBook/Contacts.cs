@@ -7,7 +7,8 @@ namespace AddressBook
 {
     public class Contacts
     {
-        ContactsCollection contactsCollection = new ContactsCollection();
+        public List<Person> list = new List<Person>();
+        
         
         public void AddContact()
         {
@@ -36,7 +37,7 @@ namespace AddressBook
             Console.WriteLine("Enter Email");
             person.Email = Console.ReadLine();
 
-            contactsCollection.list.Add(person);
+            list.Add(person);
 
             Display();
         }
@@ -50,7 +51,7 @@ namespace AddressBook
             Console.WriteLine("Enter Last Name to edit:");
             string lastName = Console.ReadLine();
 
-            foreach (Person person in contactsCollection.list)
+            foreach (Person person in list)
             {
                 if (person.FirstName.Equals(firstName) && person.LastName.Equals(lastName))
                 {
@@ -61,7 +62,7 @@ namespace AddressBook
             }
             if (isFound == true)
             {
-                contactsCollection.list.RemoveAt(index);
+                list.RemoveAt(index);
                 Console.WriteLine("Contact deleted...");
                 Display();
             }
@@ -74,7 +75,7 @@ namespace AddressBook
 
         public void Display()
         {
-            foreach (Person person in contactsCollection.list)
+            foreach (Person person in list)
             {
                 Console.WriteLine("FirstName:" + person.FirstName+"   " + "LastName:" + person.LastName + "  " + "Address:" + person.Address + "  " + "City: " + person.City + "  " + "State:" + person.State + "  " + "Zip: " + person.Zip + "  " + "Phone Number: " + person.PhoneNumber);
                 
@@ -90,7 +91,7 @@ namespace AddressBook
             Console.WriteLine("Enter Last Name to edit:");
             string lastName = Console.ReadLine();
 
-            foreach (Person person in contactsCollection.list)
+            foreach (Person person in list)
             {
                 if (person.FirstName.Equals(firstName) && person.LastName.Equals(lastName))
                 {
@@ -111,23 +112,23 @@ namespace AddressBook
                     {
                         case 1:
                             Console.WriteLine("Enter new Address:");
-                            contactsCollection.list[index].Address = Console.ReadLine();
+                            list[index].Address = Console.ReadLine();
                             break;
                         case 2:
                             Console.WriteLine("Enter new City:");
-                            contactsCollection.list[index].City = Console.ReadLine();
+                            list[index].City = Console.ReadLine();
                             break;
                         case 3:
                             Console.WriteLine("Enter new State:");
-                            contactsCollection.list[index].State = Console.ReadLine();
+                            list[index].State = Console.ReadLine();
                             break;
                         case 4:
                             Console.WriteLine("Enter new Zip:");
-                            contactsCollection.list[index].Zip = Console.ReadLine();
+                            list[index].Zip = Console.ReadLine();
                             break;
                         case 5:
                             Console.WriteLine("Enter new Phone Number:");
-                            contactsCollection.list[index].PhoneNumber = Console.ReadLine();
+                            list[index].PhoneNumber = Console.ReadLine();
                             break;
                         case 6:
                             break;
