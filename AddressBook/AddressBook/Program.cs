@@ -24,6 +24,7 @@ namespace AddressBook
                         a.Edit();
                         break;
                     case 3:
+                        a.Delete();
                         break;
                     case 4:
                         break;

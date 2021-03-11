@@ -40,11 +40,43 @@ namespace AddressBook
 
             Display();
         }
+               
+        public void Delete()
+        {
+            int index = 0;
+            bool isFound = false;
+            Console.WriteLine("Enter First Name to edit:");
+            string firstName = Console.ReadLine();
+            Console.WriteLine("Enter Last Name to edit:");
+            string lastName = Console.ReadLine();
+
+            foreach (Person person in this.list)
+            {
+                if (person.FirstName.Equals(firstName) && person.LastName.Equals(lastName))
+                {
+                    isFound = true;                    
+                    break;
+                }                
+                index++;
+            }
+            if (isFound == true)
+            {
+                list.RemoveAt(index);
+                Console.WriteLine("Contact deleted...");
+                Display();
+            }
+            else
+            {
+                Console.WriteLine("Person doesn't exist.");
+            }
+
+        }
+
         public void Display()
         {
             foreach (Person person in list)
             {
-                Console.WriteLine("FirstName" + person.FirstName + "LastName:" + person.LastName + "  " + "Address:" + person.Address + "  " + "City: " + person.City + "  " + "State:" + person.State + "  " + "Zip: " + person.Zip + "  " + "Phone Number: " + person.PhoneNumber);
+                Console.WriteLine("FirstName:" + person.FirstName+"   " + "LastName:" + person.LastName + "  " + "Address:" + person.Address + "  " + "City: " + person.City + "  " + "State:" + person.State + "  " + "Zip: " + person.Zip + "  " + "Phone Number: " + person.PhoneNumber);
                 Console.WriteLine("List Count:" + list.Count);
             }
         }
@@ -65,10 +97,7 @@ namespace AddressBook
                     isFound = true;
                     break;
                 }
-                else
-                {
-                    Console.WriteLine("Person doesn't exist.");
-                }
+               
                 index++;
             }
             if (isFound==true)
@@ -109,6 +138,10 @@ namespace AddressBook
                     }
                 }
                 Display();
+            }
+            else
+            {
+                Console.WriteLine("Person doesn't exist.");
             }
         }
     }
