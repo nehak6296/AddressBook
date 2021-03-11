@@ -7,29 +7,32 @@ namespace AddressBook
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to address book program");
-            Program p = new Program();
-            p.AddContact();
-        }
+            while (true)
+            {
+                Console.WriteLine("Enter Choice:");
+            Console.WriteLine("1.Add Contact \n 2.Edit Contact \n 3.Delete Contact \n 4.Exit");
+            int choice = Convert.ToInt32(Console.ReadLine());
 
-        public void AddContact()
-        {
-            Person person = new Person();
-            Console.WriteLine("Enter First Name");
-            person.FirstName = Console.ReadLine();
-            Console.WriteLine("Enter Last Name");
-            person.LastName = Console.ReadLine();
-            Console.WriteLine("Enter Address");
-            person.Address = Console.ReadLine();
-            Console.WriteLine("Enter City");
-            person.City = Console.ReadLine();
-            Console.WriteLine("Enter State");
-            person.State = Console.ReadLine();
-            Console.WriteLine("Enter Zip");
-            AddressBook.Person.Zip = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter Phone Number");
-            AddressBook.Person.PhoneNumber = long.Parse(Console.ReadLine());
-            Console.WriteLine("Enter Email");
-            person.Email = Console.ReadLine();
+           
+                switch (choice)
+                {
+                    case 1:
+                        AddNewContact a = new AddNewContact();
+                        a.AddContact();
+
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        break;
+                }
+                if (choice == 4)
+                {
+                    break;
+                }
+            }
         }
     }
 }
