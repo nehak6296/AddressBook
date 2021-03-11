@@ -14,7 +14,19 @@ namespace AddressBook
         public string Zip  { get; set; }
         public string PhoneNumber { get; set; }        
         public string Email { get; set; }
-          
-        }                      
-    }    
+
+        public override bool Equals(object obj)
+        {
+            return obj is Person person &&
+                   FirstName == person.FirstName &&
+                   LastName == person.LastName &&
+                   Address == person.Address &&
+                   City == person.City &&
+                   State == person.State &&
+                   Zip == person.Zip &&
+                   PhoneNumber == person.PhoneNumber &&
+                   Email == person.Email;
+        }
+    }                      
+ }    
 
