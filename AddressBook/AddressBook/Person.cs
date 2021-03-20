@@ -26,7 +26,7 @@ namespace AddressBook
                    Zip == person.Zip &&
                    PhoneNumber == person.PhoneNumber &&
                    Email == person.Email;
-        }
+        }        
     }                      
  }    
 

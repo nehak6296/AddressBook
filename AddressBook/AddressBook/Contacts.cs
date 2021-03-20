@@ -7,8 +7,7 @@ namespace AddressBook
 {
     public class Contacts
     {
-        public List<Person> list = new List<Person>();
-        
+        public List<Person> list = new List<Person>();       
         
         public void AddContact()
         {
@@ -20,6 +19,7 @@ namespace AddressBook
             Console.WriteLine("Enter Last Name");
             person.LastName = Console.ReadLine();
 
+            
             Console.WriteLine("Enter Address");
             person.Address = Console.ReadLine();
 
@@ -37,7 +37,16 @@ namespace AddressBook
             Console.WriteLine("Enter Email");
             person.Email = Console.ReadLine();
 
-            list.Add(person);
+            Person isExistsPerson = list.Find(p => p.Equals(person));
+
+            if (isExistsPerson == null)
+            {
+                list.Add(person);
+            }
+            else
+            {
+                Console.WriteLine("Person Already Exists..");
+            }
 
             Display();
         }
