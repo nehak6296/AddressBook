@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AddressBook
 {
@@ -9,10 +10,12 @@ namespace AddressBook
             Console.WriteLine("Welcome to address book program");
 
             ContactsCollection contactsCollection = new ContactsCollection();
+            Contacts contacts = new Contacts(contactsCollection);
+
             while (true)
             {
                 Console.WriteLine("Enter Preference:");
-                Console.WriteLine("1.Create Address Book \n 2.Exit");
+                Console.WriteLine("1.Create Address Book \n 2.Search Person \n 3.Exit");
                 int preference = Convert.ToInt32(Console.ReadLine());
                 switch (preference)
                 {
@@ -20,7 +23,7 @@ namespace AddressBook
                         Console.WriteLine("Enter Address Book Name: ");
                         string name = Console.ReadLine();
                         contactsCollection.CreateAddressBook(name);
-                        Contacts contacts = contactsCollection.GetAddressBook(name);
+                        List<Person> list = contactsCollection.GetAddressBook(name);
                         while (true)
                         {
                             Console.WriteLine("Enter Choice:");
@@ -48,11 +51,15 @@ namespace AddressBook
                             }
                         }
                         break;
-                    case 2:                        
+                    case 2:
+                        contactsCollection.Search();
                         break;
+                    case 3:
+                        break;
+
                     
                 }
-                if (preference==2)
+                if (preference==3)
                 {
                     break;
                 }

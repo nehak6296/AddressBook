@@ -7,8 +7,11 @@ namespace AddressBook
 {
     public class Contacts
     {
-        public List<Person> list = new List<Person>();       
-        
+       public ContactsCollection contactsCollection = null;
+        public Contacts(ContactsCollection contactsCollection)
+        {
+            this.contactsCollection = contactsCollection;
+        }
         public void AddContact()
         {
             Person person = new Person();
@@ -37,11 +40,11 @@ namespace AddressBook
             Console.WriteLine("Enter Email");
             person.Email = Console.ReadLine();
 
-            Person isExistsPerson = list.Find(p => p.Equals(person));
+            Person isExistsPerson = contactsCollection.list.Find(p => p.Equals(person));
 
             if (isExistsPerson == null)
             {
-                list.Add(person);
+                contactsCollection.list.Add(person);
             }
             else
             {
@@ -60,7 +63,7 @@ namespace AddressBook
             Console.WriteLine("Enter Last Name to edit:");
             string lastName = Console.ReadLine();
 
-            foreach (Person person in list)
+            foreach (Person person in contactsCollection.list)
             {
                 if (person.FirstName.Equals(firstName) && person.LastName.Equals(lastName))
                 {
@@ -71,7 +74,7 @@ namespace AddressBook
             }
             if (isFound == true)
             {
-                list.RemoveAt(index);
+                contactsCollection.list.RemoveAt(index);
                 Console.WriteLine("Contact deleted...");
                 Display();
             }
@@ -84,7 +87,7 @@ namespace AddressBook
 
         public void Display()
         {
-            foreach (Person person in list)
+            foreach (Person person in contactsCollection.list)
             {
                 Console.WriteLine("FirstName:" + person.FirstName+"   " + "LastName:" + person.LastName + "  " + "Address:" + person.Address + "  " + "City: " + person.City + "  " + "State:" + person.State + "  " + "Zip: " + person.Zip + "  " + "Phone Number: " + person.PhoneNumber);
                 
@@ -100,7 +103,7 @@ namespace AddressBook
             Console.WriteLine("Enter Last Name to edit:");
             string lastName = Console.ReadLine();
 
-            foreach (Person person in list)
+            foreach (Person person in contactsCollection.list)
             {
                 if (person.FirstName.Equals(firstName) && person.LastName.Equals(lastName))
                 {
@@ -121,23 +124,23 @@ namespace AddressBook
                     {
                         case 1:
                             Console.WriteLine("Enter new Address:");
-                            list[index].Address = Console.ReadLine();
+                            contactsCollection.list[index].Address = Console.ReadLine();
                             break;
                         case 2:
                             Console.WriteLine("Enter new City:");
-                            list[index].City = Console.ReadLine();
+                            contactsCollection.list[index].City = Console.ReadLine();
                             break;
                         case 3:
                             Console.WriteLine("Enter new State:");
-                            list[index].State = Console.ReadLine();
+                            contactsCollection.list[index].State = Console.ReadLine();
                             break;
                         case 4:
                             Console.WriteLine("Enter new Zip:");
-                            list[index].Zip = Console.ReadLine();
+                            contactsCollection.list[index].Zip = Console.ReadLine();
                             break;
                         case 5:
                             Console.WriteLine("Enter new Phone Number:");
-                            list[index].PhoneNumber = Console.ReadLine();
+                            contactsCollection.list[index].PhoneNumber = Console.ReadLine();
                             break;
                         case 6:
                             break;
