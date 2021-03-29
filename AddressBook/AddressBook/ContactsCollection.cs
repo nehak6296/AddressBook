@@ -103,6 +103,7 @@ namespace AddressBook
                         }
                     }
                 }
+                Console.WriteLine("Total Persons in city :"+cityList.Count);
             }
             else if (stateList.Count > 0)
             {
@@ -129,6 +130,7 @@ namespace AddressBook
                         }
                     }
                 }
+                Console.WriteLine("Total Persons in State :" + stateList.Count);
             }
 
         }
