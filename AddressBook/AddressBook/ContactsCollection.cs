@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AddressBook
@@ -133,6 +134,29 @@ namespace AddressBook
                 Console.WriteLine("Total Persons in State :" + stateList.Count);
             }
 
+        }
+        public void PrintNameInAlphabeticalOrder()
+        {
+            Console.WriteLine("Enter Book Name:");
+            string AddressBookName = Console.ReadLine();
+
+            if (contactsDictionary.ContainsKey(AddressBookName))
+            {
+                List<Person> AddressBook = GetAddressBook(AddressBookName);
+                
+                Console.WriteLine("Book Name : " + AddressBookName);
+
+                var peopleInOrder = AddressBook.OrderBy(person => person.FirstName);
+
+                foreach (Person person in peopleInOrder)
+                {
+                    Console.WriteLine("All Details :" + person.ToString());
+                }
+            }
+            else
+            {
+                Console.WriteLine("AddressBook Not Found!");
+            }
         }
     }
 }

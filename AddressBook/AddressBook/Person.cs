@@ -26,7 +26,12 @@ namespace AddressBook
                    Zip == person.Zip &&
                    PhoneNumber == person.PhoneNumber &&
                    Email == person.Email;
-        }        
+        }
+
+        public override string ToString()
+        {
+            return "Person: " + FirstName +"   "+ LastName ;
+        }
     }                      
  }    
 

@@ -15,7 +15,7 @@ namespace AddressBook
             while (true)
             {
                 Console.WriteLine("Enter Preference:");
-                Console.WriteLine("1.Create Address Book \n 2.Search Person in same city or state \n 3.view Person in city or state \n 4.Exit");
+                Console.WriteLine("1.Create Address Book \n 2.Search Person in same city or state \n 3.view Person in city or state \n4.View Person in alphabetic order \n 5.Exit");
                 int preference = Convert.ToInt32(Console.ReadLine());
                 switch (preference)
                 {
@@ -57,9 +57,12 @@ namespace AddressBook
                         break;
                     case 3:
                         contactsCollection.ViewPersonByCityOrState();
-                        break;                    
+                        break;
+                    case 4:
+                        contactsCollection.PrintNameInAlphabeticalOrder();
+                        break;
                 }
-                if (preference==4)
+                if (preference==5)
                 {
                     break;
                 }
