@@ -30,7 +30,7 @@ namespace AddressBook
 
         public override string ToString()
         {
-            return "Person: " + FirstName +"   "+ LastName ;
+            return " " + FirstName +"   "+ LastName + " "+ City + " " + State + " " + Zip  ;
         }
     }                      
  }    

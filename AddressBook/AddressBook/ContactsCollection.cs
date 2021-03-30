@@ -158,5 +158,53 @@ namespace AddressBook
                 Console.WriteLine("AddressBook Not Found!");
             }
         }
+        public void SortByCityStateOrZip()
+        {
+            Console.WriteLine("Enter Book Name:");
+            string AddressBookName = Console.ReadLine();
+
+            Console.WriteLine("Enter 1.City \n 2.State \n 3.Zip :");
+            int input = Convert.ToInt32(Console.ReadLine());            
+
+            if (contactsDictionary.ContainsKey(AddressBookName))
+            {
+
+                List<Person> AddressBook = GetAddressBook(AddressBookName);
+
+                Console.WriteLine("Book Name : " + AddressBookName);
+
+                switch (input) {
+                    case 1:
+                        var peopleByCity = AddressBook.OrderBy(person => person.City);
+                        foreach (Person person in peopleByCity)
+                        {
+                            Console.WriteLine(" City:" + person.ToString());
+                        }
+                        break;
+                    case 2:
+                        var peopleByState = AddressBook.OrderBy(person => person.State);
+                        foreach (Person person in peopleByState)
+                        {
+                            Console.WriteLine("State:" + person.ToString());
+                        }
+                        break;
+                    case 3:
+                        var peopleByZip = AddressBook.OrderBy(person => person.Zip);
+                        foreach (Person person in peopleByZip)
+                        {
+                            Console.WriteLine("Zip :" + person.ToString());
+                        }
+                        break;
+                    default:
+                        break;
+                } 
+            }
+            else
+            {
+                Console.WriteLine("AddressBook Not Found!");
+            }
+        }
+
+
     }
 }
