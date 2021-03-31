@@ -11,11 +11,11 @@ namespace AddressBook
 
             ContactsCollection contactsCollection = new ContactsCollection();
             Contacts contacts = new Contacts(contactsCollection);
-
+            CSVHandler c = new CSVHandler(contactsCollection);
             while (true)
             {
                 Console.WriteLine("Enter Preference:");
-                Console.WriteLine("1.Create Address Book \n 2.Search Person in same city or state \n 3.view Person in city or state \n4.View Person in alphabetic order\n 5.View Person by city state or Zip\n 6.Read data in File \n 7.Exit");
+                Console.WriteLine("1.Create Address Book \n 2.Search Person in same city or state \n 3.view Person in city or state \n4.View Person in alphabetic order\n 5.View Person by city state or Zip\n 6.Read data in File\n 7.Write in Csv File \n 8.Read CSV file \n 9.Exit");
                 int preference = Convert.ToInt32(Console.ReadLine());
                 switch (preference)
                 {
@@ -53,7 +53,7 @@ namespace AddressBook
                         break;
                     case 2:
                         contactsCollection.SearchPersonInSameCityOrState();
-                        
+
                         break;
                     case 3:
                         contactsCollection.ViewPersonByCityOrState();
@@ -68,12 +68,22 @@ namespace AddressBook
                         FileOperations.ReadFromStreamReader();
                         FileOperations.WriteUsingStreamWriter();
                         break;
+                    case 7:                        
+                            c.WriteInCsvFile();
+                        break;
+                    case 8:                        
+                        c.ReadFromCsv();
+
+                        break;
+                    case 9:
+                        break;
+                        
                 }
-                if (preference==7)
+                if (preference == 9)
                 {
                     break;
                 }
-            }                      
+            }
         }
     }
 }
