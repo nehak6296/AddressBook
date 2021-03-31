@@ -15,7 +15,7 @@ namespace AddressBook
             while (true)
             {
                 Console.WriteLine("Enter Preference:");
-                Console.WriteLine("1.Create Address Book \n 2.Search Person in same city or state \n 3.view Person in city or state \n4.View Person in alphabetic order\n 5.View Person by city state or Zip \n 6.Exit");
+                Console.WriteLine("1.Create Address Book \n 2.Search Person in same city or state \n 3.view Person in city or state \n4.View Person in alphabetic order\n 5.View Person by city state or Zip\n 6.Read data in File \n 7.Exit");
                 int preference = Convert.ToInt32(Console.ReadLine());
                 switch (preference)
                 {
@@ -64,8 +64,12 @@ namespace AddressBook
                     case 5:
                         contactsCollection.SortByCityStateOrZip();
                         break;
+                    case 6:
+                        FileOperations.ReadFromStreamReader();
+                        FileOperations.WriteUsingStreamWriter();
+                        break;
                 }
-                if (preference==6)
+                if (preference==7)
                 {
                     break;
                 }
