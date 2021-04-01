@@ -12,10 +12,11 @@ namespace AddressBook
             ContactsCollection contactsCollection = new ContactsCollection();
             Contacts contacts = new Contacts(contactsCollection);
             CSVHandler c = new CSVHandler(contactsCollection);
+            ReadCsvWriteJSON readCsvWriteJSON = new ReadCsvWriteJSON(contactsCollection);
             while (true)
             {
                 Console.WriteLine("Enter Preference:");
-                Console.WriteLine("1.Create Address Book \n 2.Search Person in same city or state \n 3.view Person in city or state \n4.View Person in alphabetic order\n 5.View Person by city state or Zip\n 6.Read data in File\n 7.Write in Csv File \n 8.Read CSV file \n 9.Exit");
+                Console.WriteLine("1.Create Address Book \n 2.Search Person in same city or state \n 3.view Person in city or state \n4.View Person in alphabetic order\n 5.View Person by city state or Zip\n 6.Read data in File\n 7.Write in Csv File \n 8.Read CSV file\n 9.Writing JSON File \n 10.Exit");
                 int preference = Convert.ToInt32(Console.ReadLine());
                 switch (preference)
                 {
@@ -76,10 +77,13 @@ namespace AddressBook
 
                         break;
                     case 9:
+                        readCsvWriteJSON.WriteJson();
+                        break;
+                    case 10:
                         break;
                         
                 }
-                if (preference == 9)
+                if (preference == 10)
                 {
                     break;
                 }
